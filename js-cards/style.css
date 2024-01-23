@@ -1,0 +1,31 @@
+body {
+    background-color: green;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    margin-top: 40px;
+}
+
+
+#card-area {
+    margin-top: 80px;
+}
+
+.card-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
