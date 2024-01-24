@@ -5,31 +5,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const submitButton = document.getElementById('submit-button');
 
-    function handleSubmit() {
+    async function handleSubmit() {
         responseContainer.innerHTML = '';
 
         const typedNumber = document.getElementById('typed-number').value;
         
-        let requests = []
+        // let requests = []
 
-        for(let i = 0; i < 4; i++) {
-            const request = axios.get(`${API_URL}${typedNumber}?json`)
-                .then(response => {
-                    const p = document.createElement('p');
+        // for(let i = 0; i < 4; i++) {
+        //     const request = axios.get(`${API_URL}${typedNumber}?json`)
+        //         .then(response => {
+        //             const p = document.createElement('p');
 
-                    p.innerText = response.data.text;
+        //             p.innerText = response.data.text;
 
-                    responseContainer.appendChild(p);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+        //             responseContainer.appendChild(p);
+        //         })
+        //         .catch(error => {
+        //             console.error(error);
+        //         });
 
-            requests.push(request);
+        //     requests.push(request);
+        // }
+
+        // Promise.all(requests)
+
+        for(let i = 0; i<4; i++) {
+            const data = await axios.get(`${API_URL}${typedNumber}?json`)
+
+            const p = document.createElement('p');
+            p.innerText = response.data.text;
+            responseContainer.appendChild(p);
         }
-
-        Promise.all(requests)
     }
+
     
     submitButton.addEventListener('click', handleSubmit);
 })
